@@ -32,6 +32,11 @@ public class TodoService {
         return list();
     }
 
+    public List<Todo> delete(Long id){
+        todoRepository.deleteById(id);
+        return list();
+    }
+
     private Sort createSortingCriteria(){
         Sort sort = Sort.by("priority").descending()
         .and(Sort.by("name").ascending());
