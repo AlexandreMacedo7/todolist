@@ -18,6 +18,11 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
+    public List<Todo> create(Todo todo){
+        todoRepository.save(todo);
+        return list();
+    }
+
     public List<Todo> list(){
         return todoRepository.findAll(createSortingCriteria());
     }
