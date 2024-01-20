@@ -27,6 +27,11 @@ public class TodoService {
         return todoRepository.findAll(createSortingCriteria());
     }
 
+    public List<Todo> update(Todo todo){
+        todoRepository.save(todo);
+        return list();
+    }
+
     private Sort createSortingCriteria(){
         Sort sort = Sort.by("priority").descending()
         .and(Sort.by("name").ascending());
